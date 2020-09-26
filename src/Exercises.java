@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Exercises {
 
     public static double area(double radius) {
@@ -384,5 +386,21 @@ public class Exercises {
                 System.out.println();
             }
         }
+    }
+
+
+    public static void inputThenPrintSumAndAverage() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int counter = 0;
+        int sum = 0;
+
+        while (true) {
+            boolean isAnInt = Scanner.hasNextInt();
+            if (isAnInt)
+                int number = Scanner.nextInt();
+        }
+        Scanner.close();
     }
 }
