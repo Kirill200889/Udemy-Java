@@ -1,72 +1,22 @@
-import java.util.Scanner;
+import java.util.Scanner; // required for Coding Exercise 27 and later
 
+@SuppressWarnings("ALL")
 public class Exercises {
 
-    public static double area(double radius) {
-        return (radius >= 0) ? radius * radius * Math.PI : -1;
+    // Coding Exercise 1a
+    public static long toMilesPerHour(double kilometersPerHour) {
+        return (kilometersPerHour >= 0) ? Math.round(kilometersPerHour / 1.609) : -1;
     }
 
-    public static double area(double x, double y) {
-        return (x >= 0 && y >= 0) ? x * y : -1;
-    }
-
-    public static boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
-        if (hourOfDay < 0 || hourOfDay > 23)
-            return false;
-        return isBarking && (hourOfDay < 8 || hourOfDay > 22);
-    }
-
-    public static boolean areEqualByThreeDecimalPlaces(double num1, double num2) {
-        return (int) (num1 * 1000) - (int) (num2 * 1000) == 0;
-    }
-
-    public static boolean hasEqualSum(int num1, int num2, int sum) {
-        return num1 + num2 == sum;
-    }
-
-    public static int getEvenDigitSum(int number) {
-        if (number < 0)
-            return -1;
-        int sum = 0;
-        while (number != 0) {
-            int currentDigit = number % 10;
-            if (currentDigit % 2 == 0)
-                sum += currentDigit;
-            number /= 10;
-        }
-        return sum;
-    }
-
-    public static int sumFirstAndLastDigit(int number) {
-        if (number < 0)
-            return -1;
-        int firstDigit = number;
-        while (firstDigit > 9)
-            firstDigit /= 10;
-        return number % 10 + firstDigit;
-    }
-
-    public static void printEqual(int num1, int num2, int num3) {
-        if (num1 < 0 || num2 < 0 || num3 < 0)
+    // Coding Exercise 1b
+    public static void printConversion(double kilometersPerHour) {
+        if (kilometersPerHour < 0)
             System.out.println("Invalid Value");
-        else {
-            if (num1 == num2 && num2 == num3)
-                System.out.println("All numbers are equal");
-            else if (num1 != num2 && num2 != num3 && num1 != num3)
-                System.out.println("All numbers are different");
-            else
-                System.out.println("Neither all are equal or different");
-        }
+        else
+            System.out.println(kilometersPerHour + " km/h = " + toMilesPerHour(kilometersPerHour) + " mi/h");
     }
 
-    public static boolean isLeapYear(int year) {
-        if (year < 1 || year > 9999)
-            return false;
-        if (year % 4 == 0 && year % 100 != 0)
-            return true;
-        return year % 400 == 0;
-    }
-
+    // Coding Exercise 2
     public static void printMegaBytesAndKiloBytes(int kiloBytes) {
         if (kiloBytes < 0)
             System.out.println("Invalid Value");
@@ -75,15 +25,56 @@ public class Exercises {
             megaBytes = kiloBytes / 1024;
             remainingKiloBytes = kiloBytes % 1024;
             System.out.println(kiloBytes + " KB = " + megaBytes + " MB and " + remainingKiloBytes + " KB");
-            /*
-            if (remainingKiloBytes != 0)
-                System.out.println(kiloBytes + " KB = " + megaBytes + " MB and " + remainingKiloBytes + " KB");
-            else
-                System.out.println(kiloBytes + " KB = " + megaBytes + " MB");
-            */
         }
     }
 
+    // Coding Exercise 3
+    public static boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
+        if (hourOfDay < 0 || hourOfDay > 23)
+            return false;
+        return isBarking && (hourOfDay < 8 || hourOfDay > 22);
+    }
+
+    // Coding Exercise 4
+    public static boolean isLeapYear(int year) {
+        if (year < 1 || year > 9999)
+            return false;
+        if (year % 4 == 0 && year % 100 != 0)
+            return true;
+        return year % 400 == 0;
+    }
+
+    // Coding Exercise 5
+    public static boolean areEqualByThreeDecimalPlaces(double num1, double num2) {
+        return (int) (num1 * 1000) - (int) (num2 * 1000) == 0;
+    }
+
+    // Coding Exercise 6
+    public static boolean hasEqualSum(int num1, int num2, int sum) {
+        return num1 + num2 == sum;
+    }
+
+    // Coding Exercise 7a
+    public static boolean hasTeen(int num1, int num2, int num3) {
+        return isTeen(num1) || isTeen(num2) || isTeen(num3);
+    }
+
+    // Coding Exercise 7b
+    public static boolean isTeen(int num) {
+        return num >= 13 && num <= 19;
+    }
+
+    // Coding Exercise 8a
+    public static double area(double radius) {
+        return (radius >= 0) ? radius * radius * Math.PI : -1;
+    }
+
+    // Coding Exercise 8b
+    public static double area(double x, double y) {
+        return (x >= 0 && y >= 0) ? x * y : -1;
+    }
+
+    // Coding Exercise 9
     public static void printYearsAndDays(long minutes) {
         if (minutes < 0)
             System.out.println("Invalid Value");
@@ -98,6 +89,31 @@ public class Exercises {
         }
     }
 
+    // Coding Exercise 10
+    public static void printEqual(int num1, int num2, int num3) {
+        if (num1 < 0 || num2 < 0 || num3 < 0)
+            System.out.println("Invalid Value");
+        else {
+            if (num1 == num2 && num2 == num3)
+                System.out.println("All numbers are equal");
+            else if (num1 != num2 && num2 != num3 && num1 != num3)
+                System.out.println("All numbers are different");
+            else
+                System.out.println("Neither all are equal or different");
+        }
+    }
+
+    // Coding Exercise 11
+    public static boolean isCatPlaying(boolean summer, int temperature) {
+        int lowerTemperatureLimit = 25;
+        int upperTemperatureLimit = 35;
+        int upperTemperatureLimitSummer = 45;
+        if (!summer) {
+            return temperature >= lowerTemperatureLimit && temperature <= upperTemperatureLimit;
+        } else return temperature >= lowerTemperatureLimit && temperature <= upperTemperatureLimitSummer;
+    }
+
+    // Coding Exercise 12
     public static void printNumberInWord(int num) {
         switch (num) {
             case 0:
@@ -136,6 +152,7 @@ public class Exercises {
         }
     }
 
+    // Coding Exercise 13 (requires Coding Exercise 4)
     public static int getDaysInMonth(int month, int year) {
         if (month < 1 || month > 12 || year < 1 || year > 9999)
             return -1;
@@ -163,48 +180,12 @@ public class Exercises {
         }
     }
 
-    public static boolean isPalindrome(int number) {
-        int reverse = 0, temp = Math.abs(number);
-        while (temp != 0) {
-            reverse = reverse * 10 + (temp % 10);
-            temp /= 10;
-        }
-        System.out.println(reverse);
-        return reverse == Math.abs(number);
-    }
-
-    public static boolean isCatPlaying(boolean summer, int temperature) {
-        int lowerTemperatureLimit = 25;
-        int upperTemperatureLimit = 35;
-        int upperTemperatureLimitSummer = 45;
-        if (!summer) {
-            return temperature >= lowerTemperatureLimit && temperature <= upperTemperatureLimit;
-        } else return temperature >= lowerTemperatureLimit && temperature <= upperTemperatureLimitSummer;
-    }
-
-    public static boolean hasSharedDigit(int num1, int num2) {
-        if (num1 > 99 || num1 < 10 || num2 > 99 || num2 < 10)
-            return false;
-        if (num1 % 10 == num2 % 10 || num1 % 10 == num2 / 10 % 10)
-            return true;
-        else return num1 / 10 % 10 == num2 % 10 || num1 / 10 % 10 == num2 / 10 % 10;
-    }
-
-    public static long toMilesPerHour(double kilometersPerHour) {
-        return (kilometersPerHour >= 0) ? Math.round(kilometersPerHour / 1.609) : -1;
-    }
-
-    public static void printConversion(double kilometersPerHour) {
-        if (kilometersPerHour < 0)
-            System.out.println("Invalid Value");
-        else
-            System.out.println(kilometersPerHour + " km/h = " + toMilesPerHour(kilometersPerHour) + " mi/h");
-    }
-
+    // Coding Exercise 14a
     public static boolean isOdd(int number) {
         return number > 0 && number % 2 != 0;
     }
 
+    // Coding Exercise 14b
     public static int sumOdd(int start, int end) {
         if (start > end || start <= 0)
             return -1;
@@ -215,24 +196,63 @@ public class Exercises {
         return sum;
     }
 
-    public static boolean hasTeen(int num1, int num2, int num3) {
-        return isTeen(num1) || isTeen(num2) || isTeen(num3);
+    // Coding exercise 15
+    public static boolean isPalindrome(int number) {
+        int reverse = 0, temp = Math.abs(number);
+        while (temp != 0) {
+            reverse = reverse * 10 + (temp % 10);
+            temp /= 10;
+        }
+        System.out.println(reverse);
+        return reverse == Math.abs(number);
     }
 
-    public static boolean isTeen(int num) {
-        return num >= 13 && num <= 19;
+    // Coding Exercise 16
+    public static int sumFirstAndLastDigit(int number) {
+        if (number < 0)
+            return -1;
+        int firstDigit = number;
+        while (firstDigit > 9)
+            firstDigit /= 10;
+        return number % 10 + firstDigit;
     }
 
+    // Coding Exercise 17
+    public static int getEvenDigitSum(int number) {
+        if (number < 0)
+            return -1;
+        int sum = 0;
+        while (number != 0) {
+            int currentDigit = number % 10;
+            if (currentDigit % 2 == 0)
+                sum += currentDigit;
+            number /= 10;
+        }
+        return sum;
+    }
+
+    // Coding Exercise 18
+    public static boolean hasSharedDigit(int num1, int num2) {
+        if (num1 > 99 || num1 < 10 || num2 > 99 || num2 < 10)
+            return false;
+        if (num1 % 10 == num2 % 10 || num1 % 10 == num2 / 10 % 10)
+            return true;
+        else return num1 / 10 % 10 == num2 % 10 || num1 / 10 % 10 == num2 / 10 % 10;
+    }
+
+    // Coding Exercise 19a
     public static boolean hasSameLastDigit(int num1, int num2, int num3) {
         if (!isValid(num1) || !isValid(num2) || !isValid(num3))
             return false;
         return (num1 % 10 == num2 % 10 || num1 % 10 == num3 % 10 || num2 % 10 == num3 % 10);
     }
 
+    // Coding Exercise 19b
     public static boolean isValid(int num) {
         return (num >= 10 && num <= 1000);
     }
 
+    // Coding Exercise 20
     public static int getGreatestCommonDivisor(int first, int second) {
         int smallerNum = Math.min(first, second);
         if (smallerNum < 10)
@@ -246,6 +266,7 @@ public class Exercises {
         return greatestDivisor;
     }
 
+    // Coding Exercise 21
     public static void printFactors(int number) {
         if (number < 1)
             System.out.println("Invalid Value");
@@ -257,6 +278,7 @@ public class Exercises {
         }
     }
 
+    // Coding Exercise 22
     public static boolean isPerfectNumber(int number) {
         if (number < 1)
             return false;
@@ -269,6 +291,7 @@ public class Exercises {
         return (factorsSum == number);
     }
 
+    // Coding Exercise 23a
     public static void numberToWords(int number) {
         if (number < 0)
             System.out.println("Invalid Value");
@@ -319,6 +342,17 @@ public class Exercises {
         }
     }
 
+    // Coding Exercise 23b
+    public static int reverse(int number) {
+        int reversedNumber = 0;
+        while (number != 0) {
+            reversedNumber = reversedNumber * 10 + (number % 10);
+            number /= 10;
+        }
+        return reversedNumber;
+    }
+
+    // Coding Exercise 23c
     public static int getDigitCount(int number) {
         if (number < 0)
             return -1;
@@ -330,15 +364,7 @@ public class Exercises {
         return count;
     }
 
-    public static int reverse(int number) {
-        int reversedNumber = 0;
-        while (number != 0) {
-            reversedNumber = reversedNumber * 10 + (number % 10);
-            number /= 10;
-        }
-        return reversedNumber;
-    }
-
+    // Coding Exercise 24
     public static boolean canPack(int bigCount, int smallCount, int goal) {
         if (bigCount < 0 || smallCount < 0 || goal < 0)
             return false;
@@ -347,6 +373,7 @@ public class Exercises {
         return goal - 5 * usedBig <= smallCount;
     }
 
+    // Coding Exercise 25
     public static int getLargestPrime(int number) {
         if (number < 2)
             return -1;
@@ -366,6 +393,7 @@ public class Exercises {
         return largestPrime;
     }
 
+    // Coding Exercise 26
     public static void printSquareStar(int number) {
         if (number < 5)
             System.out.println("Invalid Value");
@@ -388,6 +416,7 @@ public class Exercises {
         }
     }
 
+    // Codding Exercise 27
     public static void inputThenPrintSumAndAverage() {
         Scanner scanner = new Scanner(System.in);
         int count = 0;
