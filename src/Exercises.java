@@ -388,19 +388,24 @@ public class Exercises {
         }
     }
 
-
     public static void inputThenPrintSumAndAverage() {
-
         Scanner scanner = new Scanner(System.in);
-
-        int counter = 0;
+        int count = 0;
         int sum = 0;
-
+        long average = 0;
         while (true) {
-            boolean isAnInt = Scanner.hasNextInt();
-            if (isAnInt)
-                int number = Scanner.nextInt();
+            boolean isAnInt = scanner.hasNextInt();
+            if (isAnInt) {
+                int number = scanner.nextInt();
+                sum += number;
+                count++;
+            } else
+                break;
+            scanner.nextLine(); // handle input
         }
-        Scanner.close();
+        scanner.close();
+        if (count != 0)
+            average = Math.round((double) sum / count);
+        System.out.println("SUM = " + sum + " AVG = " + average);
     }
 }
