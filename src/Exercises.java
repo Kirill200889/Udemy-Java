@@ -416,7 +416,7 @@ public class Exercises {
         }
     }
 
-    // Codding Exercise 27
+    // Coding Exercise 27
     public static void inputThenPrintSumAndAverage() {
         Scanner scanner = new Scanner(System.in);
         int count = 0;
@@ -436,5 +436,32 @@ public class Exercises {
         if (count != 0)
             average = Math.round((double) sum / count);
         System.out.println("SUM = " + sum + " AVG = " + average);
+    }
+
+    // Coding Exercise 28a
+    public static int getBucketCount(double width, double height, double areaPerBucket, int extraBuckets) {
+        if (width <= 0 || height <= 0 || areaPerBucket <= 0 || extraBuckets < 0)
+            return -1;
+        double areaToPaint = width * height;
+        int neededBuckets = (int) (Math.ceil(areaToPaint / areaPerBucket));
+        int bucketsToBuy = neededBuckets - extraBuckets;
+        return (bucketsToBuy > 0) ? bucketsToBuy : 0;
+    }
+
+    // Coding Exercise 28b
+    public static int getBucketCount(double width, double height, double areaPerBucket) {
+        if (width <= 0 || height <= 0 || areaPerBucket <= 0)
+            return -1;
+        double areaToPaint = width * height;
+        int neededBuckets = (int) (Math.ceil(areaToPaint / areaPerBucket));
+        return neededBuckets;
+    }
+
+    // Coding Exercise 28c
+    public static int getBucketCount(double area, double areaPerBucket) {
+        if (area <= 0 || areaPerBucket <= 0)
+            return -1;
+        int neededBuckets = (int) (Math.ceil(area / areaPerBucket));
+        return neededBuckets;
     }
 }
