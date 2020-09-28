@@ -1,6 +1,5 @@
 package com.kirillkozlovsky.section4;
 
-@SuppressWarnings("ALL")
 public class Exercises {
 
     // Coding Exercise 1a

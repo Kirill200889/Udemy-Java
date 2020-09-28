@@ -1,7 +1,6 @@
-// Coding Exercise 29
 package com.kirillkozlovsky.section6;
 
-@SuppressWarnings("ALL")
+// Coding Exercise 29
 public class SimpleCalculator {
 
     private double firstNumber;

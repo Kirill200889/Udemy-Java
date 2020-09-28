@@ -4,7 +4,6 @@ import java.util.Scanner; // required for Coding Exercise 27 and later
 
 import static com.kirillkozlovsky.section4.Exercises.isLeapYear; // required for Coding Exercise 13
 
-@SuppressWarnings("ALL")
 public class Exercises {
 
     // Coding Exercise 12
